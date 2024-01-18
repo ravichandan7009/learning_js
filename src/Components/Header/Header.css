@@ -1,0 +1,23 @@
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    height: 120px;
+    max-width:inherit;
+    margin:5px;
+}
+.logo{
+   
+    height: 120px;
+    margin-left: 5px;
+}
+.nav-items > ul {
+    display: flex;
+    padding: 0px 20px;
+}
+.nav-items > ul > li{
+    padding: 10px;
+    margin : 10px;
+    list-style: none;
+    font-size: 24px;
+}

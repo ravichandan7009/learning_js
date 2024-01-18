@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import Header from './Components/Header/Header';
+import RestaurentsContainer from './Components/RestaurentsContainer/RestuarentsContainer';
+import Footer from './Components/Footer';
+import restaurants from './Constants/restaurentsMockData';
 
-function App() {
+
+const App=()=> {
+  const [restData, setRestData] = useState(restaurants)
+  const handleTopRatedRestuarents = ()=>{
+    console.log("resturents filtered.....")
+    
+    const topRatedRestuarents = restData.filter(rest=>rest.info.avgRating > 4.5)
+    console.log('topRatedRestuarents',topRatedRestuarents)
+    setRestData(topRatedRestuarents)
+}
+
+const showAllRestuarents = ()=>{
+  console.log('show all....')
+  setRestData(restaurants)
+  console.log('restData',restData)
+}
+  console.log('restData',restData)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Header/>
+   <RestaurentsContainer restData={restData} topRest ={handleTopRatedRestuarents} showAll={showAllRestuarents}/>
+   <Footer/>
+   </div>
   );
 }
 
